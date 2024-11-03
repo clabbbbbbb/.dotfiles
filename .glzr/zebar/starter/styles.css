@@ -25,7 +25,7 @@ body,
 
 #root {
   border-bottom: 1px solid rgb(251 111 146 / 5%);
-  background: linear-gradient(rgb(223 83 74 / 90%), rgb(255 143 171 / 85%));
+  background: linear-gradient(rgb(223 83 74 / 60%), rgb(255 194 209 / 85%));
 }
 
 .app {
