@@ -35,7 +35,8 @@
         network: { type: 'network' },
         glazewm: { type: 'glazewm' },
         cpu: { type: 'cpu' },
-        date: { type: 'date', formatting: 'EEE d MMM t' },
+        date: { type: 'date', formatting: 'EEEE MMM d' },
+        time: { type: 'date', formatting: 't' },
         battery: { type: 'battery' },
         memory: { type: 'memory' },
         weather: { type: 'weather' },
@@ -50,60 +51,13 @@
           providers.onOutput(() => setOutput(providers.outputMap));
         }, []);
 
-        function formatDate(milliseconds) {
-          return new Date(milliseconds).toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', hour12: true});
-        }
-
         function getTimeIcon(milliseconds) {
-          switch(new Date(milliseconds).getHours()) {
-            case 0:
-              return <i className="nf nf-weather-time_12"></i>;
-            case 1:
-              return <i className="nf nf-weather-time_1"></i>;
-            case 2:
-              return <i className="nf nf-weather-time_2"></i>;
-            case 3:
-              return <i className="nf nf-weather-time_3"></i>;
-            case 4:
-              return <i className="nf nf-weather-time_4"></i>;
-            case 5:
-              return <i className="nf nf-weather-time_5"></i>;
-            case 6:
-              return <i className="nf nf-weather-time_6"></i>;
-            case 7:
-              return <i className="nf nf-weather-time_7"></i>;
-            case 8:
-              return <i className="nf nf-weather-time_8"></i>;
-            case 9:
-              return <i className="nf nf-weather-time_9"></i>;
-            case 10:
-              return <i className="nf nf-weather-time_10"></i>;
-            case 11:
-              return <i className="nf nf-weather-time_11"></i>;
-            case 12:
-              return <i className="nf nf-weather-time_12"></i>;
-            case 13:
-              return <i className="nf nf-weather-time_1"></i>;
-            case 14:
-              return <i className="nf nf-weather-time_2"></i>;
-            case 15:
-              return <i className="nf nf-weather-time_3"></i>;
-            case 16:
-              return <i className="nf nf-weather-time_4"></i>;
-            case 17:
-              return <i className="nf nf-weather-time_5"></i>;
-            case 18:
-              return <i className="nf nf-weather-time_6"></i>;
-            case 19:
-              return <i className="nf nf-weather-time_7"></i>;
-            case 20:
-              return <i className="nf nf-weather-time_8"></i>;
-            case 21:
-              return <i className="nf nf-weather-time_9"></i>;
-            case 22:
-              return <i className="nf nf-weather-time_10"></i>;
-            case 23:
-              return <i className="nf nf-weather-time_11"></i>;
+          const h = new Date(milliseconds).getHours();
+          if (h === 0) {
+            return <i className="nf nf-weather-time_12"></i>;
+          }
+          else {
+            return <i className={`nf nf-weather-time_${h % 12}`}></i>;
           }
         }
 
@@ -203,7 +157,7 @@
               )}
             </div>
 
-            <div className="center">{output.date?.formatted}</div>
+            <div className="center">hiiiiiii ^~^</div>
 
             <div className="right">
               {output.glazewm && (
@@ -227,9 +181,16 @@
               )}
 
               {output.date && (
+                <div className="date">
+                  <i className="nf nf-md-calendar_heart"></i>
+                  {output.date?.formatted}
+                </div>
+              )}
+
+              {output.date && (
                 <div className="time">
                   {getTimeIcon(output.date.now)}
-                  {formatDate(output.date.now)}
+                  {output.time?.formatted}
                 </div>
               )}
 
