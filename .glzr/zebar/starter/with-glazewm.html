@@ -226,6 +226,13 @@
                 </>
               )}
 
+              {output.date && (
+                <div className="time">
+                  {getTimeIcon(output.date.now)}
+                  {formatDate(output.date.now)}
+                </div>
+              )}
+
               {output.network && (
                 <div className="network">
                   {getNetworkIcon(output.network)}
@@ -271,12 +278,6 @@
                 </div>
               )}
 
-              {output.date && (
-                <div className="time">
-                  {getTimeIcon(output.date.now)}
-                  {formatDate(output.date.now)}
-                </div>
-              )}
             </div>
           </div>
         );
