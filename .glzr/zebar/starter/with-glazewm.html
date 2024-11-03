@@ -32,6 +32,7 @@
       import * as zebar from 'https://esm.sh/zebar@2';
 
       const providers = zebar.createProviderGroup({
+        host: { type: 'host' },
         network: { type: 'network' },
         glazewm: { type: 'glazewm' },
         cpu: { type: 'cpu' },
@@ -138,6 +139,12 @@
           <div className="app">
             <div className="left">
               <i className="logo nf nf-fa-windows"></i>
+              {output.host && (
+                <div className="hostname">
+                  {output.host.hostname}
+                </div>
+              )}
+
               {output.glazewm && (
                 <div className="workspaces">
                   {output.glazewm.currentWorkspaces.map(workspace => (

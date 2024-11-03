@@ -5,7 +5,8 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 i {
-  color: rgb(115 130 175 / 95%);
+  /* color: rgb(115 130 175 / 95%); */
+  color: rgb(212 224 238 / 95%);
   margin-right: 7px;
 }
 
@@ -23,8 +24,8 @@ body,
 }
 
 #root {
-  border-bottom: 1px solid rgb(255 255 255 / 5%);
-  background: linear-gradient(rgb(0 0 0 / 90%), rgb(251 111 146 / 85%));
+  border-bottom: 1px solid rgb(251 111 146 / 5%);
+  background: linear-gradient(rgb(223 83 74 / 90%), rgb(255 143 171 / 85%));
 }
 
 .app {
@@ -53,6 +54,7 @@ body,
 .logo,
 .binding-mode,
 .tiling-direction,
+.hostname,
 .network,
 .memory,
 .cpu,
