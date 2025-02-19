@@ -11,10 +11,26 @@ local config = wezterm.config_builder()
 config.color_scheme = 'catppuccin-mocha'
 
 config.default_domain = 'WSL:Ubuntu'
+-- config.default_prog = { 'powershell.exe' }
+
+config.window_background_opacity = 0.85
 
 -- Config keys
 config.keys = {
-  { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncher },
+  { key = 'l', mods = 'CTRL | ALT', action = wezterm.action.ShowLauncher },
+  {
+    key = 'o',
+    mods = 'CTRL | ALT',
+    action = wezterm.action_callback(function(window, _)
+      local overrides = window:get_config_overrides() or {}
+      if overrides.window_background_opacity == 1.0 then
+        overrides.window_background_opacity = 0.9
+      else
+        overrides.window_background_opacity = 1.0
+      end
+      window:set_config_overrides(overrides)
+    end),
+  },
 }
 
 wezterm.on('gui-startup', function(cmd)
