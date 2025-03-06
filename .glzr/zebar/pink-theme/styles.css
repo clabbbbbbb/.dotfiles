@@ -5,7 +5,8 @@
 @import 'https://www.nerdfonts.com/assets/css/webfont.css';
 
 i {
-  color: rgb(115 130 175 / 95%);
+  /* color: rgb(115 130 175 / 95%); */
+  color: rgb(212 224 238 / 95%);
   margin-right: 7px;
 }
 
@@ -16,13 +17,6 @@ body {
   overflow: hidden;
 }
 
-div,
-span,
-p {
-  cursor: default;
-  user-select: none;
-}
-
 html,
 body,
 #root {
@@ -30,8 +24,8 @@ body,
 }
 
 #root {
-  border-bottom: 1px solid rgb(255 255 255 / 5%);
-  background: linear-gradient(rgb(0 0 0 / 90%), rgb(5 2 20 / 85%));
+  border-bottom: 1px solid rgb(251 111 146 / 5%);
+  background: linear-gradient(rgb(223 83 74 / 60%), rgb(255 194 209 / 85%));
 }
 
 .app {
@@ -60,11 +54,13 @@ body,
 .logo,
 .binding-mode,
 .tiling-direction,
-.paused-button,
+.hostname,
 .network,
 .memory,
 .cpu,
-.battery {
+.battery,
+.time,
+.date {
   margin-right: 20px;
 }
 
@@ -93,8 +89,7 @@ body,
 }
 
 .binding-mode,
-.tiling-direction,
-.paused-button {
+.tiling-direction {
   background: rgb(255 255 255 / 15%);
   color: rgb(255 255 255 / 90%);
   border-radius: 2px;
@@ -121,4 +116,8 @@ body,
   font-size: 7px;
   left: -8px;
   top: 3px;
+}
+
+.time {
+  position: relative;
 }
